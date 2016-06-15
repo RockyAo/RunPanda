@@ -33,6 +33,9 @@
 		D876A1301D11461800F1604C /* RAConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A12F1D11461800F1604C /* RAConstant.swift */; };
 		D876A1331D1154E800F1604C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D876A1311D1154E800F1604C /* GameScene.sks */; };
 		D876A1341D1154E800F1604C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A1321D1154E800F1604C /* GameScene.swift */; };
+		D876A1361D115D3A00F1604C /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A1351D115D3A00F1604C /* Platform.swift */; };
+		D876A1381D115D7100F1604C /* PlatformFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A1371D115D7100F1604C /* PlatformFactory.swift */; };
+		D876A13A1D11645B00F1604C /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A1391D11645B00F1604C /* Background.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		D876A12F1D11461800F1604C /* RAConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAConstant.swift; sourceTree = "<group>"; };
 		D876A1311D1154E800F1604C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		D876A1321D1154E800F1604C /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D876A1351D115D3A00F1604C /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		D876A1371D115D7100F1604C /* PlatformFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformFactory.swift; sourceTree = "<group>"; };
+		D876A1391D11645B00F1604C /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +195,9 @@
 				D876A1311D1154E800F1604C /* GameScene.sks */,
 				D876A1321D1154E800F1604C /* GameScene.swift */,
 				D876A12B1D1144E900F1604C /* Panda.swift */,
+				D876A1351D115D3A00F1604C /* Platform.swift */,
+				D876A1371D115D7100F1604C /* PlatformFactory.swift */,
+				D876A1391D11645B00F1604C /* Background.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -409,7 +418,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D876A1361D115D3A00F1604C /* Platform.swift in Sources */,
 				D876A1341D1154E800F1604C /* GameScene.swift in Sources */,
+				D876A1381D115D7100F1604C /* PlatformFactory.swift in Sources */,
+				D876A13A1D11645B00F1604C /* Background.swift in Sources */,
 				D876A1081D11440900F1604C /* GameViewController.swift in Sources */,
 				D876A12C1D1144E900F1604C /* Panda.swift in Sources */,
 				D876A1301D11461800F1604C /* RAConstant.swift in Sources */,
@@ -558,6 +570,7 @@
 				INFOPLIST_FILE = RunPanda/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPanda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -570,6 +583,7 @@
 				INFOPLIST_FILE = RunPanda/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPanda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
