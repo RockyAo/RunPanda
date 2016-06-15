@@ -96,6 +96,7 @@ class GameScene: SKScene{
 // MARK: - ProtocolMainScene
 extension GameScene : ProtocolMainScene{
 
+    ///  设置平台
    private func setPlatform(){
         
         //将平台工厂加入视图
