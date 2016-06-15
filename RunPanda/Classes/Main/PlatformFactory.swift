@@ -45,15 +45,23 @@ extension PlatformFactory{
         //随机间隔
         let gap:CGFloat = CGFloat(arc4random()%8 + 1)
         //随机x坐标
-        let x:CGFloat = self.sceneWidth + CGFloat( midNum*50 ) + gap + 100
+        let x:CGFloat = sceneWidth + CGFloat( midNum*50 ) + gap + 100
         //随机y坐标
         let y:CGFloat = CGFloat(arc4random()%200 + 200)
         
-        let platform = self.createPlatform(true, midNum: midNum, x: x, y: y)
+        let platform = createPlatform(true, midNum: midNum, x: x, y: y)
         
         //回传距离用于判断什么时候生成新的平台
         delegate?.onGetData(platform.width + x - sceneWidth)
 
+    }
+    
+    ///  创建平台
+    internal func creatPlatform(midNum:UInt32,x:CGFloat,y:CGFloat){
+    
+        let platform = createPlatform(false, midNum: midNum, x: x, y: y)
+        
+        delegate?.onGetData(platform.width - sceneWidth)
     }
     
     /// 移除平台
@@ -76,7 +84,14 @@ extension PlatformFactory{
 // MARK: - private method
 extension PlatformFactory{
 
-    
+    ///  创建平台
+    ///
+    ///  - parameter isRandom: 是否生成随机位置平台
+    ///  - parameter midNum:   中间部分生成几个
+    ///  - parameter x:        x坐标
+    ///  - parameter y:        y坐标
+    ///
+    ///  - returns: 平台
     private func createPlatform(isRandom:Bool,midNum:UInt32,x:CGFloat,y:CGFloat)->Platform{
         //声明一个平台类，用来组装平台。
         let platform = Platform()

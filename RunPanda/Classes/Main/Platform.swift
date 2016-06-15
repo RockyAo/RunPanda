@@ -25,6 +25,14 @@ class Platform: SKNode {
             addChild(platform)
             //更新宽度
             width += platform.size.width
+            
+            zPosition = 20
+            
+            physicsBody = SKPhysicsBody(rectangleOfSize:CGSizeMake(width, height) , center: CGPointMake(width/2.0, 0))
+            physicsBody?.categoryBitMask = BitMaskType.platform
+            physicsBody?.dynamic = false
+            physicsBody?.allowsRotation = false
+            physicsBody?.restitution = 0;
         }
     }
 

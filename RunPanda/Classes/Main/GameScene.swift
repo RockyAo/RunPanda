@@ -25,6 +25,13 @@ class GameScene: SKScene{
         return newFactory
     }()
     
+    private lazy var background:Background = {
+    
+        let bg = Background()
+        
+        return bg
+    }()
+    
     
     //移动速度
     var moveSpeed:CGFloat = 15
@@ -37,6 +44,8 @@ class GameScene: SKScene{
         /* Setup your scene here */
         //场景的背景颜色
         let skyColor = SKColor(red:113/255,green:197/255,blue:207/255,alpha:1)
+        //设置物理引擎
+        setupPhysics()
         
         backgroundColor = skyColor
         //给熊猫定一个初始位置
@@ -46,7 +55,13 @@ class GameScene: SKScene{
         //将熊猫显示在场景中
         addChild(panda)
         
+        //将平台添加到场景中
         setPlatform()
+        
+        //将背景添加到场景中
+        addChild(background)
+        
+        
 
     }
     
@@ -71,7 +86,8 @@ class GameScene: SKScene{
             printRALog("生成新平台")
             platformFactory.creatPlatformRamdom()
         }
-        platformFactory.move(self.moveSpeed)
+        platformFactory.move(moveSpeed)
+        background.move(moveSpeed/5.0)
         
     }
     
@@ -88,11 +104,41 @@ extension GameScene : ProtocolMainScene{
         platformFactory.sceneWidth = self.frame.width
         //设置代理
         platformFactory.delegate = self
+    
+        platformFactory.creatPlatform(3, x: 0, y: 200)
     }
     
     func onGetData(dist:CGFloat){
         
         self.lastDis = dist
         
+    }
+}
+
+// MARK: - SKPhysicsContactDelegate
+extension GameScene : SKPhysicsContactDelegate{
+
+    ///  设置场景物理引擎
+    private func setupPhysics(){
+    
+        physicsWorld.contactDelegate = self
+        physicsWorld.gravity = CGVectorMake(0, -9.8)
+        physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        physicsBody?.categoryBitMask = BitMaskType.scene
+        physicsBody?.dynamic = false
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        if contact.bodyA.categoryBitMask == BitMaskType.panda && contact.bodyB.contactTestBitMask == BitMaskType.scene{
+            
+            printRALog("游戏结束")
+        }
+        
+        
+        if contact.bodyA.categoryBitMask == BitMaskType.platform || contact.bodyB.categoryBitMask == BitMaskType.panda  {
+            
+            panda.run()
+        }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C08FBA31D119551007905AF /* BitMaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08FBA21D119551007905AF /* BitMaskType.swift */; };
 		D876A0CC1D11437B00F1604C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A0CB1D11437B00F1604C /* AppDelegate.swift */; };
 		D876A0D51D11437B00F1604C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D876A0D31D11437B00F1604C /* Main.storyboard */; };
 		D876A0D71D11437B00F1604C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D876A0D61D11437B00F1604C /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C08FBA21D119551007905AF /* BitMaskType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitMaskType.swift; sourceTree = "<group>"; };
 		D876A0C81D11437B00F1604C /* RunPanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunPanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D876A0CB1D11437B00F1604C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D876A0D41D11437B00F1604C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				D876A1351D115D3A00F1604C /* Platform.swift */,
 				D876A1371D115D7100F1604C /* PlatformFactory.swift */,
 				D876A1391D11645B00F1604C /* Background.swift */,
+				5C08FBA21D119551007905AF /* BitMaskType.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				D876A1081D11440900F1604C /* GameViewController.swift in Sources */,
 				D876A12C1D1144E900F1604C /* Panda.swift in Sources */,
 				D876A1301D11461800F1604C /* RAConstant.swift in Sources */,
+				5C08FBA31D119551007905AF /* BitMaskType.swift in Sources */,
 				D876A0CC1D11437B00F1604C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,6 +660,7 @@
 				D876A0F61D11437C00F1604C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D876A0F71D11437C00F1604C /* Build configuration list for PBXNativeTarget "RunPandaTests" */ = {
 			isa = XCConfigurationList;
@@ -664,6 +669,7 @@
 				D876A0F91D11437C00F1604C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D876A0FA1D11437C00F1604C /* Build configuration list for PBXNativeTarget "RunPandaUITests" */ = {
 			isa = XCConfigurationList;
@@ -672,6 +678,7 @@
 				D876A0FC1D11437C00F1604C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

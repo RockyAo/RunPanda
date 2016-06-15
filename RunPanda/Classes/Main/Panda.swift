@@ -55,19 +55,52 @@ class Panda: SKSpriteNode {
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         
-        let size = runAtlas.textureNamed("panda_run_01").size()
+        let tture = runAtlas.textureNamed("panda_run_01")
         
-        super.init(texture: texture, color: color, size: size)
         
-        setupAllPhotoFrame(texture)
+        let size = tture.size()
+        
+        super.init(texture: tture, color: color, size: size)
+        
+        
+        zPosition = 20
+        
+        setupAllPhotoFrame(tture)
         
         run()
+        
+        setUpPhysics(tture)
 
     }
     
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - 物理引擎
+
+extension Panda{
+
+    private func setUpPhysics(texture:SKTexture?){
+        
+        //根据文理尺寸设置物理体
+        physicsBody = SKPhysicsBody(rectangleOfSize: texture?.size() ?? CGSizeZero)
+        
+        
+        //允许物理检测
+        physicsBody?.dynamic = true
+        //不允许转动
+        physicsBody?.allowsRotation = false
+        //弹性
+        physicsBody?.restitution = 0
+        
+        physicsBody?.categoryBitMask = BitMaskType.panda
+        
+        physicsBody?.contactTestBitMask = BitMaskType.scene | BitMaskType.platform
+        
+        
     }
 }
 
@@ -135,6 +168,7 @@ extension Panda{
         removeAllActions()
         status = .jump
         runAction(SKAction.animateWithTextures(jumpFrame, timePerFrame: timeDuration))
+        physicsBody?.velocity = CGVectorMake(0, 500)
     }
     
     /// 二段跳
