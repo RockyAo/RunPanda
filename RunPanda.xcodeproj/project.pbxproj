@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D876A0CC1D11437B00F1604C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A0CB1D11437B00F1604C /* AppDelegate.swift */; };
+		D876A0CE1D11437B00F1604C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D876A0CD1D11437B00F1604C /* GameScene.sks */; };
+		D876A0D01D11437B00F1604C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A0CF1D11437B00F1604C /* GameScene.swift */; };
+		D876A0D21D11437B00F1604C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A0D11D11437B00F1604C /* GameViewController.swift */; };
+		D876A0D51D11437B00F1604C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D876A0D31D11437B00F1604C /* Main.storyboard */; };
+		D876A0D71D11437B00F1604C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D876A0D61D11437B00F1604C /* Assets.xcassets */; };
+		D876A0DA1D11437B00F1604C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D876A0D81D11437B00F1604C /* LaunchScreen.storyboard */; };
+		D876A0E51D11437C00F1604C /* RunPandaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A0E41D11437C00F1604C /* RunPandaTests.swift */; };
+		D876A0F01D11437C00F1604C /* RunPandaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A0EF1D11437C00F1604C /* RunPandaUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D876A0E11D11437C00F1604C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D876A0C01D11437B00F1604C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D876A0C71D11437B00F1604C;
+			remoteInfo = RunPanda;
+		};
+		D876A0EC1D11437C00F1604C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D876A0C01D11437B00F1604C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D876A0C71D11437B00F1604C;
+			remoteInfo = RunPanda;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D876A0C81D11437B00F1604C /* RunPanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunPanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D876A0CB1D11437B00F1604C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D876A0CD1D11437B00F1604C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		D876A0CF1D11437B00F1604C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D876A0D11D11437B00F1604C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D876A0D41D11437B00F1604C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D876A0D61D11437B00F1604C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D876A0D91D11437B00F1604C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D876A0DB1D11437B00F1604C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D876A0E01D11437B00F1604C /* RunPandaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunPandaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D876A0E41D11437C00F1604C /* RunPandaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPandaTests.swift; sourceTree = "<group>"; };
+		D876A0E61D11437C00F1604C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D876A0EB1D11437C00F1604C /* RunPandaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunPandaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D876A0EF1D11437C00F1604C /* RunPandaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPandaUITests.swift; sourceTree = "<group>"; };
+		D876A0F11D11437C00F1604C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D876A0C51D11437B00F1604C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D876A0DD1D11437B00F1604C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D876A0E81D11437C00F1604C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D876A0BF1D11437B00F1604C = {
+			isa = PBXGroup;
+			children = (
+				D876A0CA1D11437B00F1604C /* RunPanda */,
+				D876A0E31D11437C00F1604C /* RunPandaTests */,
+				D876A0EE1D11437C00F1604C /* RunPandaUITests */,
+				D876A0C91D11437B00F1604C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D876A0C91D11437B00F1604C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D876A0C81D11437B00F1604C /* RunPanda.app */,
+				D876A0E01D11437B00F1604C /* RunPandaTests.xctest */,
+				D876A0EB1D11437C00F1604C /* RunPandaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D876A0CA1D11437B00F1604C /* RunPanda */ = {
+			isa = PBXGroup;
+			children = (
+				D876A0CB1D11437B00F1604C /* AppDelegate.swift */,
+				D876A0CD1D11437B00F1604C /* GameScene.sks */,
+				D876A0CF1D11437B00F1604C /* GameScene.swift */,
+				D876A0D11D11437B00F1604C /* GameViewController.swift */,
+				D876A0D31D11437B00F1604C /* Main.storyboard */,
+				D876A0D61D11437B00F1604C /* Assets.xcassets */,
+				D876A0D81D11437B00F1604C /* LaunchScreen.storyboard */,
+				D876A0DB1D11437B00F1604C /* Info.plist */,
+			);
+			path = RunPanda;
+			sourceTree = "<group>";
+		};
+		D876A0E31D11437C00F1604C /* RunPandaTests */ = {
+			isa = PBXGroup;
+			children = (
+				D876A0E41D11437C00F1604C /* RunPandaTests.swift */,
+				D876A0E61D11437C00F1604C /* Info.plist */,
+			);
+			path = RunPandaTests;
+			sourceTree = "<group>";
+		};
+		D876A0EE1D11437C00F1604C /* RunPandaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D876A0EF1D11437C00F1604C /* RunPandaUITests.swift */,
+				D876A0F11D11437C00F1604C /* Info.plist */,
+			);
+			path = RunPandaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D876A0C71D11437B00F1604C /* RunPanda */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D876A0F41D11437C00F1604C /* Build configuration list for PBXNativeTarget "RunPanda" */;
+			buildPhases = (
+				D876A0C41D11437B00F1604C /* Sources */,
+				D876A0C51D11437B00F1604C /* Frameworks */,
+				D876A0C61D11437B00F1604C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RunPanda;
+			productName = RunPanda;
+			productReference = D876A0C81D11437B00F1604C /* RunPanda.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D876A0DF1D11437B00F1604C /* RunPandaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D876A0F71D11437C00F1604C /* Build configuration list for PBXNativeTarget "RunPandaTests" */;
+			buildPhases = (
+				D876A0DC1D11437B00F1604C /* Sources */,
+				D876A0DD1D11437B00F1604C /* Frameworks */,
+				D876A0DE1D11437B00F1604C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D876A0E21D11437C00F1604C /* PBXTargetDependency */,
+			);
+			name = RunPandaTests;
+			productName = RunPandaTests;
+			productReference = D876A0E01D11437B00F1604C /* RunPandaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D876A0EA1D11437C00F1604C /* RunPandaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D876A0FA1D11437C00F1604C /* Build configuration list for PBXNativeTarget "RunPandaUITests" */;
+			buildPhases = (
+				D876A0E71D11437C00F1604C /* Sources */,
+				D876A0E81D11437C00F1604C /* Frameworks */,
+				D876A0E91D11437C00F1604C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D876A0ED1D11437C00F1604C /* PBXTargetDependency */,
+			);
+			name = RunPandaUITests;
+			productName = RunPandaUITests;
+			productReference = D876A0EB1D11437C00F1604C /* RunPandaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D876A0C01D11437B00F1604C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = RockyAo;
+				TargetAttributes = {
+					D876A0C71D11437B00F1604C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					D876A0DF1D11437B00F1604C = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D876A0C71D11437B00F1604C;
+					};
+					D876A0EA1D11437C00F1604C = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D876A0C71D11437B00F1604C;
+					};
+				};
+			};
+			buildConfigurationList = D876A0C31D11437B00F1604C /* Build configuration list for PBXProject "RunPanda" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D876A0BF1D11437B00F1604C;
+			productRefGroup = D876A0C91D11437B00F1604C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D876A0C71D11437B00F1604C /* RunPanda */,
+				D876A0DF1D11437B00F1604C /* RunPandaTests */,
+				D876A0EA1D11437C00F1604C /* RunPandaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D876A0C61D11437B00F1604C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D876A0CE1D11437B00F1604C /* GameScene.sks in Resources */,
+				D876A0DA1D11437B00F1604C /* LaunchScreen.storyboard in Resources */,
+				D876A0D71D11437B00F1604C /* Assets.xcassets in Resources */,
+				D876A0D51D11437B00F1604C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D876A0DE1D11437B00F1604C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D876A0E91D11437C00F1604C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D876A0C41D11437B00F1604C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D876A0D01D11437B00F1604C /* GameScene.swift in Sources */,
+				D876A0D21D11437B00F1604C /* GameViewController.swift in Sources */,
+				D876A0CC1D11437B00F1604C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D876A0DC1D11437B00F1604C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D876A0E51D11437C00F1604C /* RunPandaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D876A0E71D11437C00F1604C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D876A0F01D11437C00F1604C /* RunPandaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D876A0E21D11437C00F1604C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D876A0C71D11437B00F1604C /* RunPanda */;
+			targetProxy = D876A0E11D11437C00F1604C /* PBXContainerItemProxy */;
+		};
+		D876A0ED1D11437C00F1604C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D876A0C71D11437B00F1604C /* RunPanda */;
+			targetProxy = D876A0EC1D11437C00F1604C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D876A0D31D11437B00F1604C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D876A0D41D11437B00F1604C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D876A0D81D11437B00F1604C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D876A0D91D11437B00F1604C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D876A0F21D11437C00F1604C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D876A0F31D11437C00F1604C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D876A0F51D11437C00F1604C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RunPanda/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPanda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D876A0F61D11437C00F1604C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RunPanda/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPanda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D876A0F81D11437C00F1604C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = RunPandaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPandaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RunPanda.app/RunPanda";
+			};
+			name = Debug;
+		};
+		D876A0F91D11437C00F1604C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RunPandaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPandaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RunPanda.app/RunPanda";
+			};
+			name = Release;
+		};
+		D876A0FB1D11437C00F1604C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = RunPandaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPandaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RunPanda;
+			};
+			name = Debug;
+		};
+		D876A0FC1D11437C00F1604C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RunPandaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPandaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RunPanda;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D876A0C31D11437B00F1604C /* Build configuration list for PBXProject "RunPanda" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D876A0F21D11437C00F1604C /* Debug */,
+				D876A0F31D11437C00F1604C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D876A0F41D11437C00F1604C /* Build configuration list for PBXNativeTarget "RunPanda" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D876A0F51D11437C00F1604C /* Debug */,
+				D876A0F61D11437C00F1604C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D876A0F71D11437C00F1604C /* Build configuration list for PBXNativeTarget "RunPandaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D876A0F81D11437C00F1604C /* Debug */,
+				D876A0F91D11437C00F1604C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D876A0FA1D11437C00F1604C /* Build configuration list for PBXNativeTarget "RunPandaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D876A0FB1D11437C00F1604C /* Debug */,
+				D876A0FC1D11437C00F1604C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D876A0C01D11437B00F1604C /* Project object */;
+}
