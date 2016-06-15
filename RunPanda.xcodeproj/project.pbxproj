@@ -31,6 +31,7 @@
 		D876A1281D11445500F1604C /* hit_platform.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D876A1191D11445500F1604C /* hit_platform.mp3 */; };
 		D876A1291D11445500F1604C /* jump_from_platform.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D876A11A1D11445500F1604C /* jump_from_platform.mp3 */; };
 		D876A12A1D11445500F1604C /* lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D876A11B1D11445500F1604C /* lose.mp3 */; };
+		D876A12C1D1144E900F1604C /* Panda.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A12B1D1144E900F1604C /* Panda.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		D876A1191D11445500F1604C /* hit_platform.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit_platform.mp3; sourceTree = "<group>"; };
 		D876A11A1D11445500F1604C /* jump_from_platform.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jump_from_platform.mp3; sourceTree = "<group>"; };
 		D876A11B1D11445500F1604C /* lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lose.mp3; sourceTree = "<group>"; };
+		D876A12B1D1144E900F1604C /* Panda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panda.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		D876A0FF1D11440900F1604C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D876A12B1D1144E900F1604C /* Panda.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			files = (
 				D876A1071D11440900F1604C /* GameScene.swift in Sources */,
 				D876A1081D11440900F1604C /* GameViewController.swift in Sources */,
+				D876A12C1D1144E900F1604C /* Panda.swift in Sources */,
 				D876A0CC1D11437B00F1604C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RunPanda/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPanda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -559,6 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RunPanda/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RunPanda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
