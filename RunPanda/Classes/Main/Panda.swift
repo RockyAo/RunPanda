@@ -14,12 +14,12 @@ import SpriteKit
 ///
 /// - run:   跑
 /// - jump:  跳
-/// - jump1: 二段跳
+/// - jump_effect: 二段跳
 /// - roll:  打滚
 enum pandaStatus:Int {
     case run = 1
     case jump
-    case jump1
+    case jump_effect
     case roll
 }
 
@@ -90,4 +90,16 @@ extension Panda{
         }
 
     }
+}
+
+// MARK: - 熊猫动作函数
+extension Panda{
+
+    /// 跑路函数
+    internal func run() -> Void {
+        
+        
+    }
+    
+    
 }
