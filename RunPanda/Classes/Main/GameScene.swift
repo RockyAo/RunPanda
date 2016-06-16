@@ -2,7 +2,7 @@
 //  GameScene.swift
 //  RunPanda
 //
-//  Created by ZCBL on 16/6/15.
+//  Created by RockyAo on 16/6/15.
 //  Copyright (c) 2016年 RockyAo. All rights reserved.
 //
 
@@ -32,6 +32,13 @@ class GameScene: SKScene{
         return bg
     }()
     
+    private lazy var appleFactory:AppleFactory = {
+    
+        let newFactory = AppleFactory()
+        
+        return newFactory
+    }()
+    
     
     //移动速度
     var moveSpeed:CGFloat = 15
@@ -39,6 +46,8 @@ class GameScene: SKScene{
     //判断最后一个平台还有多远完全进入游戏场景
     var lastDis:CGFloat = 0.0
     
+    /// 苹果的高度
+    var appleY:CGFloat = 0.0
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -61,7 +70,9 @@ class GameScene: SKScene{
         //将背景添加到场景中
         addChild(background)
         
+        appleFactory.onInit(frame.width, y: appleY)
         
+        addChild(appleFactory)
 
     }
     
@@ -79,7 +90,7 @@ class GameScene: SKScene{
         }
         platformFactory.move(moveSpeed)
         background.move(moveSpeed/5.0)
-        
+        appleFactory.move(moveSpeed)
     }
     
 }
@@ -100,9 +111,10 @@ extension GameScene : ProtocolMainScene{
         platformFactory.creatPlatform(3, x: 0, y: 200)
     }
     
-    func onGetData(dist:CGFloat){
-        
+    func onGetData(dist:CGFloat,appleY:CGFloat){
         self.lastDis = dist
+        self.appleY = appleY
+        appleFactory.appleY = appleY
         
     }
 }
@@ -122,6 +134,11 @@ extension GameScene : SKPhysicsContactDelegate{
     
     func didBeginContact(contact: SKPhysicsContact) {
         
+        if(contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask) == (BitMaskType.apple|BitMaskType.panda) {
+            
+            
+            printRALog("熊猫撞苹果");
+        }
         
         if (contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask) == (BitMaskType.platform|BitMaskType.panda){
             

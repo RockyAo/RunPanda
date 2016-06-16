@@ -2,7 +2,7 @@
 //  PlatformFactory.swift
 //  RunPanda
 //
-//  Created by ZCBL on 16/6/15.
+//  Created by RockyAo on 16/6/15.
 //  Copyright © 2016年 RockyAo. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import SpriteKit
 //定义一个协议，用来接收数据
 protocol ProtocolMainScene{
     
-    func onGetData(dist:CGFloat)
+    func onGetData(dist:CGFloat,appleY:CGFloat)
 }
 
 class PlatformFactory: SKNode {
@@ -52,7 +52,7 @@ extension PlatformFactory{
         let platform = createPlatform(true, midNum: midNum, x: x, y: y)
         
         //回传距离用于判断什么时候生成新的平台
-        delegate?.onGetData(platform.width + x - sceneWidth)
+        delegate?.onGetData(platform.width + x - sceneWidth,appleY: y)
 
     }
     
@@ -61,7 +61,7 @@ extension PlatformFactory{
     
         let platform = createPlatform(false, midNum: midNum, x: x, y: y)
         
-        delegate?.onGetData(platform.width - sceneWidth)
+        delegate?.onGetData(platform.width - sceneWidth,appleY: y)
     }
     
     /// 移除平台
