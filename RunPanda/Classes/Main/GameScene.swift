@@ -39,15 +39,46 @@ class GameScene: SKScene{
         return newFactory
     }()
     
+    private lazy var scoreLabel:SKLabelNode = {
+    
+        let score = SKLabelNode(fontNamed: "Chalkduster")
+        score.horizontalAlignmentMode = .Left
+        score.position = CGPointMake(20, self.frame.size.height - 150)
+        score.text = "run 0km"
+        
+        return score
+    }()
+    
+    private lazy var appleLabel:SKLabelNode = {
+    
+        let apple = SKLabelNode(fontNamed:"Chalkduster")
+        apple.horizontalAlignmentMode = .Left
+        apple.position = CGPointMake(400, self.frame.size.height-150)
+        apple.text = "eat: \(self.appleNum) apple"
+        return apple
+    }()
+    
+    
+    //跑了多远变量
+    private var distance :CGFloat = 0.0
+    //吃了多少个苹果变量
+    private var appleNum = 0
+
+    //最大速度
+    var maxSpeed :CGFloat = 50.0
     
     //移动速度
-    var moveSpeed:CGFloat = 15
+    var moveSpeed:CGFloat = 10
     
     //判断最后一个平台还有多远完全进入游戏场景
     var lastDis:CGFloat = 0.0
     
     /// 苹果的高度
     var appleY:CGFloat = 0.0
+    
+    /// 游戏是否结束
+    var isGameOver = false
+    
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -73,6 +104,9 @@ class GameScene: SKScene{
         appleFactory.onInit(frame.width, y: appleY)
         
         addChild(appleFactory)
+        
+        //设置记分牌
+        setUpScoreLabel()
 
     }
     
@@ -83,16 +117,48 @@ class GameScene: SKScene{
     
 
     override func update(currentTime: CFTimeInterval) {
-        lastDis -= moveSpeed
-        if lastDis <= 0 {
-            printRALog("生成新平台")
-            platformFactory.creatPlatformRamdom()
+       
+        if !isGameOver {
+            
+            lastDis -= moveSpeed
+            
+            //速度以5为基础，以跑的距离除以2000为增量
+            var tempSpeed = CGFloat(5 + Int(distance/2000))
+            //将速度控制在maxSpeed
+            if tempSpeed > maxSpeed {
+                tempSpeed = maxSpeed
+            }
+            //如果移动速度小于新的速度就改变
+            if moveSpeed < tempSpeed {
+                moveSpeed = tempSpeed
+            }
+            
+            if lastDis <= 0 {
+                printRALog("生成新平台")
+                platformFactory.creatPlatformRamdom()
+            }
+            platformFactory.move(moveSpeed)
+            background.move(moveSpeed/5.0)
+            appleFactory.move(moveSpeed)
+            
+            
+            distance += moveSpeed
+            scoreLabel.text = "run: \(Int(distance/10*10)/10) m"
+            appleLabel.text = "eat: \(appleNum) apple"
+
         }
-        platformFactory.move(moveSpeed)
-        background.move(moveSpeed/5.0)
-        appleFactory.move(moveSpeed)
     }
     
+}
+
+// MARK: - 记分牌相关
+extension GameScene{
+
+    private func setUpScoreLabel(){
+    
+        addChild(scoreLabel)
+        addChild(appleLabel)
+    }
 }
 
 // MARK: - ProtocolMainScene
@@ -136,25 +202,91 @@ extension GameScene : SKPhysicsContactDelegate{
         
         if(contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask) == (BitMaskType.apple|BitMaskType.panda) {
             
-            
             printRALog("熊猫撞苹果");
+            
+            appleNum += 1
+            
+            //如果碰撞体A是苹果，隐藏碰撞体A，反之隐藏碰撞体B
+            if contact.bodyA.categoryBitMask == BitMaskType.apple {
+                contact.bodyA.node?.hidden = true
+            }else{
+                
+                contact.bodyB.node?.hidden = true
+            }
         }
         
         if (contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask) == (BitMaskType.platform|BitMaskType.panda){
             
             printRALog("碰撞平台")
             
-            panda.run()
+            var isDown = false
             
-            panda.jumpEnd = panda.position.y
+            var canRun = false
             
-            if panda.jumpEnd - panda.jumpStart <= -70 {
+            //碰撞平台为A
+            if contact.bodyA.categoryBitMask == BitMaskType.platform {
                 
-                panda.roll()
+                if (contact.bodyA.node as! Platform).isDown {
+                 
+                    isDown = true
+                    
+                    //让平台接受重力影响
+                    contact.bodyA.node?.physicsBody?.dynamic = true
+                    
+                    contact.bodyA.node?.physicsBody?.collisionBitMask = 0
+                    
+                }else if (contact.bodyA.node as! Platform).isShock {
                 
-                downAndUp(contact.bodyA.node!)
-                downAndUp(contact.bodyB.node!)
+                    (contact.bodyA.node as! Platform).isShock = false
+                    
+                     downAndUp(contact.bodyA.node!, down: -50, downTime: 0.2, up: 100, upTime: 1, isRepeat: true)
+                }
+                
+                if contact.bodyB.node?.position.y > contact.bodyA.node!.position.y {
+                    
+                    canRun=true
+                }
+                
+            }else if contact.bodyB.categoryBitMask == BitMaskType.platform {
+            
+                if (contact.bodyB.node as! Platform).isDown {
+                    
+                    contact.bodyB.node?.physicsBody?.dynamic = true
+                    
+                    contact.bodyB.node?.physicsBody?.collisionBitMask = 0
+                    
+                    isDown = true
+                    
+                }else if (contact.bodyB.node as! Platform).isShock {
+                    
+                    (contact.bodyB.node as! Platform).isShock = false
+                    
+                    downAndUp(contact.bodyB.node!, down: -50, downTime: 0.2, up: 100, upTime: 1, isRepeat: true)
+                }
+                
+                if contact.bodyA.node?.position.y > contact.bodyB.node?.position.y {
+                    
+                    canRun=true
+                }
 
+            }
+            
+            
+            
+            //判断是否打滚
+            panda.jumpEnd = panda.position.y
+            if panda.jumpEnd-panda.jumpStart <= -70 {
+                panda.roll()
+                //如果平台下沉就不让它被震得颤抖一下
+                if !isDown {
+                    downAndUp(contact.bodyA.node!)
+                    downAndUp(contact.bodyB.node!)
+                }
+            }else{
+                
+                if canRun {
+                    panda.run()
+                }
             }
         }
         
@@ -162,6 +294,7 @@ extension GameScene : SKPhysicsContactDelegate{
         if (contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask) == (BitMaskType.scene | BitMaskType.panda) {
             printRALog("游戏结束")
             
+            isGameOver = true
         }
 
     }
@@ -184,5 +317,28 @@ extension GameScene : SKPhysicsContactDelegate{
             node.runAction(downUpAct)
         }
     }
+    
+    //重新开始游戏
+   private func reSet(){
+        //重置isLose变量
+        isGameOver = false
+        //重置熊猫位置
+        panda.position = CGPointMake(200, 400)
+        //重置移动速度
+        moveSpeed  = 15.0
+        //重置跑的距离
+        distance = 0.0
+        //重置首个平台完全进入游戏场景的距离
+        lastDis = 0.0
+        //重置吃了苹果的数量
+        self.appleNum = 0
+        //平台工厂的重置方法
+        platformFactory.reSet()
+        //苹果工厂的重置方法
+        appleFactory.reSet()
+        //创建一个初始的平台给熊猫一个立足之地
+        platformFactory.creatPlatform(3, x: 0, y: 200)
+    }
+
 
 }

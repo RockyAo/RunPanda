@@ -111,7 +111,7 @@ extension Panda{
         
         physicsBody?.categoryBitMask = BitMaskType.panda
         
-        physicsBody?.contactTestBitMask = BitMaskType.scene | BitMaskType.platform
+        physicsBody?.contactTestBitMask = BitMaskType.scene | BitMaskType.platform | BitMaskType.apple
         
         
     }

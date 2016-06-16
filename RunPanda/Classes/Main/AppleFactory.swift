@@ -49,8 +49,6 @@ extension AppleFactory{
             
             apple.physicsBody?.categoryBitMask = BitMaskType.apple
             
-
-            
             apple.physicsBody?.dynamic = false
             
             apple.anchorPoint = CGPointZero
@@ -82,5 +80,13 @@ extension AppleFactory{
             appleArray[0].removeFromParent()
             appleArray.removeAtIndex(0)
         }
+    }
+    
+    //重置方法
+    internal func reSet(){
+        //移除所有子对象
+        removeAllChildren()
+        //清空苹果数组
+        appleArray.removeAll(keepCapacity: false)
     }
 }

@@ -79,6 +79,15 @@ extension PlatformFactory{
             platforms.removeAtIndex(0)
         }
     }
+    
+    //重置方法
+    internal func reSet(){
+        //清除所有子对象
+        removeAllChildren()
+        //清空平台数组
+        platforms.removeAll(keepCapacity: false)
+    }
+
 }
 
 // MARK: - private method
