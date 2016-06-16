@@ -67,16 +67,7 @@ class GameScene: SKScene{
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        
-        //当熊猫状态为跑的时候播放跳的动作
-        if panda.status == pandaStatus.run {
-            panda.jump()
-        }else if panda.status == pandaStatus.jump {
-            //当状态为跳的时候，执行打滚动画
-            panda.jump_effect()
-        }else if panda.status == pandaStatus.jump_effect{
-        
-            panda.roll()
-        }
+        panda.jump()
     }
     
 
@@ -131,15 +122,50 @@ extension GameScene : SKPhysicsContactDelegate{
     
     func didBeginContact(contact: SKPhysicsContact) {
         
-        if contact.bodyA.categoryBitMask == BitMaskType.panda && contact.bodyB.contactTestBitMask == BitMaskType.scene{
+        
+        if (contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask) == (BitMaskType.platform|BitMaskType.panda){
             
-            printRALog("游戏结束")
-        }
-        
-        
-        if contact.bodyA.categoryBitMask == BitMaskType.platform || contact.bodyB.categoryBitMask == BitMaskType.panda  {
+            printRALog("碰撞平台")
             
             panda.run()
+            
+            panda.jumpEnd = panda.position.y
+            
+            if panda.jumpEnd - panda.jumpStart <= -70 {
+                
+                panda.roll()
+                
+                downAndUp(contact.bodyA.node!)
+                downAndUp(contact.bodyB.node!)
+
+            }
+        }
+        
+        
+        if (contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask) == (BitMaskType.scene | BitMaskType.panda) {
+            printRALog("游戏结束")
+            
+        }
+
+    }
+    
+    func didEndContact(contact: SKPhysicsContact) {
+        
+        panda.jumpStart = panda.position.y
+    }
+    
+    func downAndUp(node :SKNode,down:CGFloat = -50,downTime:Double=0.05,up:CGFloat=50,upTime:Double=0.1,isRepeat:Bool=false){
+        //下沉动作
+        let downAct = SKAction.moveByX(0, y: down, duration: downTime)
+        //上升动过
+        let upAct = SKAction.moveByX(0, y: up, duration: upTime)
+        //下沉上升动作序列
+        let downUpAct = SKAction.sequence([downAct,upAct])
+        if isRepeat {
+            node.runAction(SKAction.repeatActionForever(downUpAct))
+        }else {
+            node.runAction(downUpAct)
         }
     }
+
 }
