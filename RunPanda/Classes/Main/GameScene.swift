@@ -58,6 +58,13 @@ class GameScene: SKScene{
         return apple
     }()
     
+    private lazy var soundManger:SoundManager = {
+    
+        let manger = SoundManager()
+        
+        return manger
+    }()
+    
     
     //跑了多远变量
     private var distance :CGFloat = 0.0
@@ -107,11 +114,19 @@ class GameScene: SKScene{
         
         //设置记分牌
         setUpScoreLabel()
+        
+        soundManger.playBackgroundMusic()
 
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        
+        
+        if panda.status != pandaStatus.jump_effect {
+            //如果处于2段跳状态则不播放起跳音效
+            soundManger.playJump()
+        }
+        
         panda.jump()
     }
     
@@ -206,6 +221,8 @@ extension GameScene : SKPhysicsContactDelegate{
             
             appleNum += 1
             
+            soundManger.playEat()
+            
             //如果碰撞体A是苹果，隐藏碰撞体A，反之隐藏碰撞体B
             if contact.bodyA.categoryBitMask == BitMaskType.apple {
                 contact.bodyA.node?.hidden = true
@@ -228,18 +245,20 @@ extension GameScene : SKPhysicsContactDelegate{
                 
                 if (contact.bodyA.node as! Platform).isDown {
                  
-                    isDown = true
-                    
+                    isDown = false
+               
                     //让平台接受重力影响
                     contact.bodyA.node?.physicsBody?.dynamic = true
                     
                     contact.bodyA.node?.physicsBody?.collisionBitMask = 0
+                   
                     
                 }else if (contact.bodyA.node as! Platform).isShock {
                 
                     (contact.bodyA.node as! Platform).isShock = false
                     
                      downAndUp(contact.bodyA.node!, down: -50, downTime: 0.2, up: 100, upTime: 1, isRepeat: true)
+                    
                 }
                 
                 if contact.bodyB.node?.position.y > contact.bodyA.node!.position.y {
@@ -267,6 +286,7 @@ extension GameScene : SKPhysicsContactDelegate{
                 if contact.bodyA.node?.position.y > contact.bodyB.node?.position.y {
                     
                     canRun=true
+                    
                 }
 
             }
@@ -276,6 +296,8 @@ extension GameScene : SKPhysicsContactDelegate{
             //判断是否打滚
             panda.jumpEnd = panda.position.y
             if panda.jumpEnd-panda.jumpStart <= -70 {
+                
+                soundManger.playRoll()
                 panda.roll()
                 //如果平台下沉就不让它被震得颤抖一下
                 if !isDown {
@@ -295,6 +317,13 @@ extension GameScene : SKPhysicsContactDelegate{
             printRALog("游戏结束")
             
             isGameOver = true
+            
+            soundManger.playDead()
+            
+
+            let alert = UIAlertView(title: "游戏结束", message: "GameOver", delegate: self, cancelButtonTitle: "确认")
+            
+            alert.show()
         }
 
     }
@@ -341,4 +370,12 @@ extension GameScene : SKPhysicsContactDelegate{
     }
 
 
+}
+
+extension GameScene : UIAlertViewDelegate{
+
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        
+        reSet()
+    }
 }

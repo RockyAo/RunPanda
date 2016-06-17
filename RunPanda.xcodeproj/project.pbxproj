@@ -37,6 +37,7 @@
 		D876A1361D115D3A00F1604C /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A1351D115D3A00F1604C /* Platform.swift */; };
 		D876A1381D115D7100F1604C /* PlatformFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A1371D115D7100F1604C /* PlatformFactory.swift */; };
 		D876A13A1D11645B00F1604C /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A1391D11645B00F1604C /* Background.swift */; };
+		D8777B941D13E3A800BDF05E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8777B931D13E3A800BDF05E /* SoundManager.swift */; };
 		D8A8CC931D1249DD00BDAE74 /* AppleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A8CC921D1249DD00BDAE74 /* AppleFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		D876A1351D115D3A00F1604C /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		D876A1371D115D7100F1604C /* PlatformFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformFactory.swift; sourceTree = "<group>"; };
 		D876A1391D11645B00F1604C /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		D8777B931D13E3A800BDF05E /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		D8A8CC921D1249DD00BDAE74 /* AppleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 				D876A1391D11645B00F1604C /* Background.swift */,
 				5C08FBA21D119551007905AF /* BitMaskType.swift */,
 				D8A8CC921D1249DD00BDAE74 /* AppleFactory.swift */,
+				D8777B931D13E3A800BDF05E /* SoundManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				D876A12C1D1144E900F1604C /* Panda.swift in Sources */,
 				D876A1301D11461800F1604C /* RAConstant.swift in Sources */,
 				5C08FBA31D119551007905AF /* BitMaskType.swift in Sources */,
+				D8777B941D13E3A800BDF05E /* SoundManager.swift in Sources */,
 				D876A0CC1D11437B00F1604C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
