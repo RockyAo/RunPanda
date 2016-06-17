@@ -13,7 +13,19 @@ import AVFoundation
 
 class SoundManager: SKNode {
     
-    private var backgroundMusicPlayer = AVAudioPlayer()
+    private lazy var backgroundMusicPlayer:AVAudioPlayer = {
+        
+        //获取apple.mp3文件地址
+        let bgMusicURL:NSURL =  NSBundle.mainBundle().URLForResource("apple", withExtension: "mp3")!
+        //根据背景音乐地址生成播放器
+        
+        let musicPlayer = try! AVAudioPlayer(contentsOfURL: bgMusicURL)
+        
+        //设置为循环播放
+        musicPlayer.numberOfLoops = -1
+        
+        return musicPlayer
+    }()
     
      /// 跳的声效
     private var jumpAct = SKAction.playSoundFileNamed("jump_from_platform.mp3", waitForCompletion: false)
@@ -31,23 +43,22 @@ extension SoundManager{
 
     internal func playBackgroundMusic(){
     
-        //获取apple.mp3文件地址
-        let bgMusicURL:NSURL =  NSBundle.mainBundle().URLForResource("apple", withExtension: "mp3")!
-        //根据背景音乐地址生成播放器
-        
-        do{
-           try backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicURL)
-        }catch let error as NSError {
-        
-            printRALog(error)
+        if !backgroundMusicPlayer.playing {
+            
+            //准备播放音乐
+            backgroundMusicPlayer.prepareToPlay()
+            //播放音乐
+            backgroundMusicPlayer.play()
         }
-        //设置为循环播放
-        backgroundMusicPlayer.numberOfLoops = -1
-        //准备播放音乐
-        backgroundMusicPlayer.prepareToPlay()
-        //播放音乐
-        backgroundMusicPlayer.play()
 
+    }
+    
+    internal func stopPlayBackgroundMusic(){
+    
+        if backgroundMusicPlayer.playing {
+             backgroundMusicPlayer.stop()
+        }
+       
     }
     
     ///播放game over 音效动作的方法

@@ -316,6 +316,8 @@ extension GameScene : SKPhysicsContactDelegate{
         if (contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask) == (BitMaskType.scene | BitMaskType.panda) {
             printRALog("游戏结束")
             
+            soundManger.stopPlayBackgroundMusic()
+            
             isGameOver = true
             
             soundManger.playDead()
@@ -377,5 +379,7 @@ extension GameScene : UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         
         reSet()
+        
+        soundManger.playBackgroundMusic()
     }
 }
